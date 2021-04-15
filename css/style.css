@@ -21,31 +21,128 @@ a
 		outline-style: none;
 	}
 
-a.menu-nav
-	{
-		margin-right:5%;
-		padding:15px;
-		padding-left:30px;
-		padding-right:30px;
-		border-radius:15px;
-		border:1px solid white;
-		color:white;
-		text-transform: uppercase;
-	}
-
-a.menu-nav:hover
-	{
-		color:#009788;
-		background-color: white;
-	}
-
 li 
 	{
 		list-style: none;
 	}
 
 /*-----RULES FOR DESKTOP MEDIA XL*/
+h1 
+    {
+        font-size: 4em;
+        text-transform: uppercase;
+    }
 
+h2 
+    {
+        border-bottom: 1px solid #cc1;
+        font-size: 3em;
+        margin-bottom:3vh;
+    }
+
+p 
+    {
+        line-height: 1.6em;
+    }
+    
+header
+    {
+        color:white;
+        height:14vh;
+        position:sticky;
+        z-index:2;
+        top:0;
+        background-color: #336CA6;
+    }
+
+/*----HEADER MENU----*/
+.menu-header-list a
+	{
+		color:white;
+	}
+
+.menu-header-list a:hover
+	{
+		color:black;
+	}
+
+.menu-header-list a.anchor-active
+    {
+        border-bottom: 1px solid #ffffffd5;
+    }
+
+.container-title
+    {
+        background:linear-gradient(0deg, #50858B 0%, #336CA6 60%);
+        height:80vh;
+        
+    }
+
+/*----SECTIONS ----*/
+section:nth-of-type(1)
+    {   
+        background-color: #5497A7;
+    }
+
+.wave:nth-of-type(1)
+    {
+        background-image: url("../img/wave1-2.svg");
+        width:100%;
+        height:5vh;
+    }
+
+section:nth-of-type(2)
+    {
+        background-color: #62A8AC;
+    }
+
+.wave:nth-of-type(2)
+    {
+        background-image: url("../img/wave2-3.svg");
+        width:100%;
+        height:5vh;
+    }
+
+section:nth-of-type(3)
+    {
+        background-color: #78CAD2;
+    }
+
+.wave:nth-of-type(3)
+    {
+        background-image: url("../img/wave3-4.svg");
+        width:100%;
+        height:5vh;
+    }
+
+section:nth-of-type(4)
+    {
+        background-color: #A1D2CE;
+    }
+
+section:nth-of-type(odd) .container-sec
+    {
+        min-height:80vh;
+        text-align:left;
+        max-width:50vw;
+        margin-right:auto;
+        padding:3%;
+    }
+
+section:nth-of-type(even) .container-sec
+    {
+        min-height:80vh;
+        text-align: right;
+        max-width:50vw;
+        margin-left:auto;
+        padding:3%;
+    }
+
+footer
+    {
+        background-color: #50858B;
+        height:25vh;
+    }
 
 /*-----MEDIA MOB L-----*/
 @media screen and (min-width:901px) and (max-width:1024px)
@@ -62,5 +159,5 @@ li
 /*-----MEDIA MOB S-----*/
 @media screen and (max-width:640px)
     {
-        
+
     }
