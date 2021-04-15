@@ -1,0 +1,66 @@
+/*GENERAL RULES*/
+*
+	{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+html
+	{
+		height: 100vh;
+		font-size: 18px;
+		color: black;
+		font-family: "Barlow-Regular";
+	}
+
+a
+	{
+		text-decoration:none;
+		color: inherit;
+		outline-style: none;
+	}
+
+a.menu-nav
+	{
+		margin-right:5%;
+		padding:15px;
+		padding-left:30px;
+		padding-right:30px;
+		border-radius:15px;
+		border:1px solid white;
+		color:white;
+		text-transform: uppercase;
+	}
+
+a.menu-nav:hover
+	{
+		color:#009788;
+		background-color: white;
+	}
+
+li 
+	{
+		list-style: none;
+	}
+
+/*-----RULES FOR DESKTOP MEDIA XL*/
+
+
+/*-----MEDIA MOB L-----*/
+@media screen and (min-width:901px) and (max-width:1024px)
+    {
+
+    }
+
+/*-----MEDIA MOB M-----*/
+@media screen and (min-width:641px) and (max-width:900px)
+    {
+
+    }
+
+/*-----MEDIA MOB S-----*/
+@media screen and (max-width:640px)
+    {
+        
+    }
