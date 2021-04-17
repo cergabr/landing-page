@@ -1,10 +1,31 @@
 //var
+const headerElem=document.querySelector('header');
 
 //functions
 
 /**
  * HELPER FUNCTIONS
 */
+function readSections(){
+    return document.querySelectorAll('section[id^=sect-]'); 
+}
+
+/* check if elem is full visible or not*/
+function elemIsFullVisible(elem){
+    let elemRect=elem.getBoundingClientRect();
+
+    //check if elem is full visible
+    if (elemRect.top >= 0 && (elemRect.bottom - window.innerHeight)<=0){
+        return true;
+    }
+    else{
+        return false;
+    }  
+}
+
+function getElemPos(elem){
+    
+}
 
 /**
  * END HELPER FUNCTIONS
@@ -14,9 +35,9 @@
  * MAIN FUNCTIONS
 */
 
-//func for populating nav menu
-function createItemsList(){
-    const sections=document.querySelectorAll('section[id^=sect-]');
+/*func for populating nav menu*/
+function createMenuList(){
+    const sections=readSections();
     //creating a fragment to append new <li> elements
     const fragment=document.createDocumentFragment();
 
@@ -37,9 +58,16 @@ function createItemsList(){
 }
 
 // Add class 'active' to section when near top of viewport
-
+function sectionActiveClass(){
+    
+}
 
 // Scroll to anchor ID using scrollTO event
+function scrollTo(){
+    window.scrollTo(x,(y-headerElem));
+    Element.offsetTop; //distance from top
+    Element.offsetParent;
+}
 
 
 /**
@@ -51,10 +79,19 @@ function createItemsList(){
 */
 
 //creating list inside ul
-createItemsList();
+createMenuList();
 
 // Scroll to section on link click
 
 // Set sections as active
-
-
+document.addEventListener('scroll',function(){
+    let sections=readSections();
+    for (section of sections){
+        if (elemIsFullVisible(section)){
+            section.classList.add('active-element');
+        }
+        else{
+            section.classList.remove('active-element');
+        }
+    }
+});
