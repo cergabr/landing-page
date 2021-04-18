@@ -1,3 +1,27 @@
+@font-face
+{
+	font-family:"Roboto";
+	src: url("../fonts/Roboto-Regular.ttf") format("TrueType");
+	font-weight:normal;
+	font-style:normal;
+}
+
+@font-face
+{
+	font-family:"Roboto";
+	src: url("../fonts/Roboto-Italic.ttf") format("TrueType");
+	font-weight:normal;
+	font-style:italic;
+}
+
+@font-face
+{
+	font-family:"Roboto";
+	src: url("../fonts/Roboto-Bold.ttf") format("TrueType");
+	font-weight:bold;
+	font-style:normal;
+}
+
 /*GENERAL RULES*/
 *
 	{
@@ -11,7 +35,7 @@ html
 		height: 100vh;
 		font-size: 18px;
 		color: black;
-		font-family: "Barlow-Regular";
+		font-family: "Roboto";
 	}
 
 a
@@ -48,12 +72,13 @@ p
     
 header
     {
-        color:white;
-        height:14vh;
+        height:12vh;
         position:sticky;
         z-index:2;
         top:0;
         background-color: #2d6195;
+        color:white;
+        transition: all 1s ease-in-out;
     }
 
 /*----HEADER MENU----*/
@@ -92,23 +117,53 @@ header
 
 .menu-header-list a:hover
 	{
-		color:#2d6195;
         background-color: white;
+        color:#2d6195;
 	}
 
-.menu-header-list a.anchor-active
+.active-anchor
     {
         border-bottom: 1px solid #ffffffd5;
     }
 
+.hidden-header
+    {
+        opacity:0%;
+    }
+
+/* rules for header with .page-scrolled class*/
+.page-scrolled
+    {
+        color:#2d6195;
+        background-color:rgba(255, 255, 255, 0.877);
+        box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+        transition: all 1s ease-in-out;
+    }   
+.page-scrolled .menu-header-list a:hover
+    {
+        background-color:#2d6195;
+        color:white;
+    }
+
+.page-scrolled .active-anchor
+    {
+        border-bottom: 1px solid #2d6195d5;
+    }
+/* end .page-scrolled rules*/
+
 .container-title
     {
         background:linear-gradient(0deg, #50858B 0%, #2d6195 60%);
-        height:75vh;
+        height:105vh;
         padding-top:15vh;
     }
 
 /*----SECTIONS ----*/
+main
+    {
+        position:relative;
+    }
+
 main > section
     {
         position:relative;
@@ -121,7 +176,7 @@ main > section
         margin-bottom: 0%;
     }
     to {
-        margin-bottom: 70%;
+        margin-bottom: 75%;
     }
 }
 
@@ -130,7 +185,7 @@ main > section
         margin-bottom: 0%;
     }
     to {
-        margin-bottom: 70%;
+        margin-bottom: 75%;
     }
 }
 
@@ -176,7 +231,7 @@ main > section
         height: 100px;
         left: 75%;
         animation: bubbleTop 1s linear infinite, bubbleSide 2s ease-in-out alternate infinite;
-        -webkit-animation: bubbleTop 10s linear infinite, bubbleSide 2s ease-in-out alternate infinite;     
+        -webkit-animation: bubbleTop 8s linear infinite, bubbleSide 2s ease-in-out alternate infinite;     
         animation-delay: 2s;
     }
 
@@ -188,7 +243,7 @@ main > section
         height: 150px;
         left: 35%;
         animation: bubbleTop 1s linear infinite, bubbleSide 2s ease-in-out alternate infinite;
-        -webkit-animation: bubbleTop 11s linear infinite, bubbleSide 2s ease-in-out alternate infinite;     
+        -webkit-animation: bubbleTop 9s linear infinite, bubbleSide 2s ease-in-out alternate infinite;     
         animation-delay:0s;
     }
     
@@ -200,7 +255,7 @@ main > section
         height: 80px;
         left: 12%;
         animation: bubbleTop 1s linear infinite, bubbleSide 2s ease-in-out alternate infinite;
-        -webkit-animation: bubbleTop 8.8s linear infinite, bubbleSide 2s ease-in-out alternate infinite;     
+        -webkit-animation: bubbleTop 6.8s linear infinite, bubbleSide 2s ease-in-out alternate infinite;     
         animation-delay:1s;
     }
 
@@ -212,7 +267,7 @@ main > section
         height: 60px;
         left:55%;
         animation: bubbleTop 1s linear infinite, bubbleSide 2s ease-in-out alternate infinite;
-        -webkit-animation: bubbleTop 8s linear infinite, bubbleSide 2s ease-in-out alternate infinite;     
+        -webkit-animation: bubbleTop 6s linear infinite, bubbleSide 2s ease-in-out alternate infinite;     
         animation-delay:3s;
     }
 
@@ -263,7 +318,7 @@ main > section:nth-of-type(odd) .container-sec
         text-align:left;
         max-width:50vw;
         margin-right:auto;
-        padding:3%;
+        padding:40px;
     }
 
 main > section:nth-of-type(even) .container-sec
@@ -272,7 +327,26 @@ main > section:nth-of-type(even) .container-sec
         text-align: right;
         max-width:50vw;
         margin-left:auto;
-        padding:3%;
+        padding:40px;
+    }
+
+#bot-anchor
+    {
+        display:none;
+        position:absolute;
+        left:calc(50% - 79px);
+        bottom:25px;
+        color:#50858B;
+        border:2px solid #50858B;
+        border-radius:12px;
+        padding:10px;
+        font-weight: bold;
+    }
+
+#bot-anchor:hover
+    {
+        background-color: #50858B;
+        color:white;
     }
 
 footer
