@@ -9,23 +9,6 @@ function readSections(){
     return document.querySelectorAll('section[id^=sect-]'); 
 }
 
-function toggleElemOnScroll(){
-    if (window.pageYOffset > 0){
-        if (!headerElem.classList.contains('page-scrolled')){
-            headerElem.classList.add('page-scrolled');
-        }      
-        if (window.pageYOffset + window.innerHeight >= document.body.offsetHeight){
-            document.getElementById('bot-anchor').setAttribute('style','display:inline;')
-        }
-        else {
-            document.getElementById('bot-anchor').removeAttribute('style','display:inline;')
-        }
-    }
-    else{
-        headerElem.classList.remove('page-scrolled');
-    }
-}
-
 // Check if elem is visible > 50% of its height
 function elemIsVisible(elem){
     //distance from the top of elem and the bottom of viewport
@@ -41,12 +24,12 @@ function elemIsVisible(elem){
     }  
 }
 
-// 
+// Hide the header after scroll
 function hideAfterScroll(){
     if (window.pageYOffset > 0){
-        timer=setTimeout(()=>{
+            timer=setTimeout(() => {
             headerElem.classList.add('hidden-header');
-        },3000);
+        }, 2000);
     }
 }
 
@@ -105,11 +88,29 @@ function scrollToAnchor(e){
     window.scrollTo({left: 0, top: posY, behavior: 'smooth'});
 }
 
-// Toggle header visibility on scroll
+// Toggle header style on scroll
 function headerOnScroll(){
     headerElem.classList.remove('hidden-header');
+    if (window.pageYOffset > 0){
+        if (!headerElem.classList.contains('page-scrolled')){
+            headerElem.classList.add('page-scrolled');
+        }
+    }
+    else{
+        headerElem.classList.remove('page-scrolled');
+    }
     clearTimeout(timer);
     hideAfterScroll();
+}
+
+// Toggle bot anchor when end of doc 
+function toggleBottomAnchor(){       
+    if (window.pageYOffset + window.innerHeight >= document.body.offsetHeight){
+        document.getElementById('bot-anchor').setAttribute('style','display:inline;')
+    }
+    else {
+        document.getElementById('bot-anchor').removeAttribute('style','display:inline;')
+    }
 }
 
 /**
@@ -134,6 +135,6 @@ document.querySelector('#bot-anchor').addEventListener('click', e => {
 // EventListener for active section
 document.addEventListener('scroll', e => {
     headerOnScroll();
-    toggleElemOnScroll(); 
+    toggleBottomAnchor(); 
     sectionActiveClass(e);
 });
