@@ -132,6 +132,17 @@ header
     }
 
 /* rules for header with .page-scrolled class*/
+.filler-top
+    {
+        background-color: #2d6195;
+        height:13vh;
+        width:100%;
+        position:absolute;
+        top:0;
+        left:0;
+        z-index:-5;
+    }
+
 .page-scrolled
     {
         color:#2d6195;

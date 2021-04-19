@@ -8,8 +8,7 @@ function readSections(){
     return document.querySelectorAll('section[id^=sect-]'); 
 }
 
-function pageScrolled(){
-    console.log(window.pageYOffset);
+function toggleElemOnScroll(){
     if (window.pageYOffset > 0){
         headerElem.classList.add('page-scrolled');
         if (window.pageYOffset + window.innerHeight >= document.body.offsetHeight){
@@ -112,4 +111,4 @@ document.querySelector('#bot-anchor').addEventListener('click', e => {
 });
 
 // EventListener for active section
-document.addEventListener('scroll', e => {pageScrolled(); sectionActiveClass(e)});
+document.addEventListener('scroll', e => {toggleElemOnScroll(); sectionActiveClass(e)});
