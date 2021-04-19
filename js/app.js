@@ -1,5 +1,6 @@
 
 const headerElem=document.querySelector('header');
+let timer;
 
 /**
  * HELPER FUNCTIONS
@@ -10,7 +11,9 @@ function readSections(){
 
 function toggleElemOnScroll(){
     if (window.pageYOffset > 0){
-        headerElem.classList.add('page-scrolled');
+        if (!headerElem.classList.contains('page-scrolled')){
+            headerElem.classList.add('page-scrolled');
+        }      
         if (window.pageYOffset + window.innerHeight >= document.body.offsetHeight){
             document.getElementById('bot-anchor').setAttribute('style','display:inline;')
         }
@@ -37,6 +40,16 @@ function elemIsVisible(elem){
         return false;
     }  
 }
+
+// 
+function hideAfterScroll(){
+    if (window.pageYOffset > 0){
+        timer=setTimeout(()=>{
+            headerElem.classList.add('hidden-header');
+        },3000);
+    }
+}
+
 /**
  * END HELPER FUNCTIONS
 */
@@ -91,6 +104,14 @@ function scrollToAnchor(e){
 
     window.scrollTo({left: 0, top: posY, behavior: 'smooth'});
 }
+
+// Toggle header visibility on scroll
+function headerOnScroll(){
+    headerElem.classList.remove('hidden-header');
+    clearTimeout(timer);
+    hideAfterScroll();
+}
+
 /**
  * END MAIN FUNCTIONS
 */
@@ -111,4 +132,8 @@ document.querySelector('#bot-anchor').addEventListener('click', e => {
 });
 
 // EventListener for active section
-document.addEventListener('scroll', e => {toggleElemOnScroll(); sectionActiveClass(e)});
+document.addEventListener('scroll', e => {
+    headerOnScroll();
+    toggleElemOnScroll(); 
+    sectionActiveClass(e);
+});
