@@ -66,15 +66,20 @@ function createMenuList(){
 function sectionActiveClass(){
         let sections=readSections();
         for (section of sections){
-            if (elemIsVisible(section)){
-                section.classList.add('active-element');
-                //add class active to the correspondent anchor
-                document.querySelector('.menu-header-list a[href=\'#'+section.id+'\']').classList.add('active-anchor');
-            }
-            else {
+            if(section.classList.contains('collapsed')){
                 section.classList.remove('active-element');
-                //remove class active from the correspondent anchor
-                document.querySelector('.menu-header-list a[href=\'#'+section.id+'\']').classList.remove('active-anchor');
+            }
+            else{ 
+                if (elemIsVisible(section)){
+                    section.classList.add('active-element');
+                    //add class active to the correspondent anchor
+                    document.querySelector('.menu-header-list a[href=\'#'+section.id+'\']').classList.add('active-anchor');
+                }
+                else {
+                    section.classList.remove('active-element');
+                    //remove class active from the correspondent anchor
+                    document.querySelector('.menu-header-list a[href=\'#'+section.id+'\']').classList.remove('active-anchor');
+                }
             }
         }
     }
@@ -82,7 +87,14 @@ function sectionActiveClass(){
 // Scroll to anchor
 function scrollToAnchor(e){
     e.preventDefault();
+
+    if(e.target.offsetParent.previousElementSibling.classList.contains('menu-mob-active')){
+        e.target.offsetParent.previousElementSibling.classList.toggle('menu-mob-active');
+    }
+    
     const anchorSec=document.querySelector(e.target.hash);
+    anchorSec.classList.remove('collapsed');
+    sectionActiveClass();
     const posY=anchorSec.getBoundingClientRect().top + document.documentElement.scrollTop - headerElem.offsetHeight;
 
     window.scrollTo({left: 0, top: posY, behavior: 'smooth'});
@@ -129,7 +141,7 @@ document.querySelector('.menu-header-list').addEventListener('click',scrollToAnc
 // Scroll to top on bottom link click
 document.querySelector('#bot-anchor').addEventListener('click', e => {
     e.preventDefault();
-    window.scrollTo({left: 0, top: document.querySelector('#page-top').offsetTop, behavior: 'smooth'});
+    window.scrollTo({left: 0, top: 0, behavior: 'smooth'});
 });
 
 // EventListener for active section
@@ -138,3 +150,16 @@ document.addEventListener('scroll', e => {
     toggleBottomAnchor(); 
     sectionActiveClass(e);
 });
+
+document.querySelector('#menu-mob').addEventListener('click', e=>{
+    e.target.classList.toggle('menu-mob-active');
+});
+
+
+document.querySelector('main').addEventListener('click', e=>{
+    if (e.target.classList.contains('toggle-collapse')){
+        e.target.offsetParent.offsetParent.classList.toggle('collapsed');
+        sectionActiveClass();
+    };
+});
+

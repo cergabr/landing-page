@@ -24,194 +24,480 @@
 
 /*GENERAL RULES*/
 *
-	{
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-	}
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 html
-	{
-		height: 100vh;
-		font-size: 18px;
-		color: black;
-		font-family: "Roboto";
-	}
+{
+    height: 100vh;
+    font-size: 18px;
+    color: black;
+    font-family: "Roboto";
+}
 
 a
-	{
-		text-decoration:none;
-		color: inherit;
-		outline-style: none;
-	}
+{
+    text-decoration:none;
+    color: inherit;
+    outline-style: none;
+}
 
 li 
-	{
-		list-style: none;
-	}
+{
+    list-style: none;
+}
 
 /*-----RULES FOR DESKTOP MEDIA XL*/
 h1 
-    {
-        color:white;
-        font-size: 4.5em;
-        text-align: center;
-    }
+{
+    color:white;
+    font-size: 4.5em;
+    text-align: center;
+}
 
 h2 
-    {
-        border-bottom: 1px solid #ffffffa2;
-        font-size: 3em;
-        margin-bottom:3vh;
-    }
+{
+    border-bottom: 1px solid #ffffffa2;
+    font-size: 3em;
+    margin-bottom:3vh;
+    position: relative;
+    z-index: 2;
+}
 
 p 
-    {
-        line-height: 1.6em;
-    }
-    
+{
+    line-height: 1.6em;
+}
+
 header
-    {
-        height:12vh;
-        position:sticky;
-        z-index:2;
-        top:0;
-        background-color: #2d6195;
-        color:white;
-        transition: all 0.8s ease-in-out;
-    }
+{
+    height:12vh;
+    position:sticky;
+    z-index:2;
+    top:0;
+    background-color: #2d6195;
+    color:white;
+    transition: all 0.8s ease-in-out;
+}
 
 /*----HEADER MENU----*/
 .menu-header
-    {
-        width:40%;
-        height:100%;
-        margin-left:auto;
-        margin-right:auto;
-    }
+{
+    width:40%;
+    height:100%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.menu-header > button
+{
+    display:none;
+}
 
 .menu-header-list
-    {
-        width:100%;
-        height:100%;
-        padding:5% 0 5% 0;
-        display:inline-flex;
-        flex-flow: row wrap;
-        justify-content: space-between;
-        align-content: center;
-    }
+{
+    width:100%;
+    height:100%;
+    padding:5% 0 5% 0;
+    display:inline-flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: center;
+}
 
 .menu-header-list li
-    {
-        display:inline;
-        margin: 0 auto 0 auto;
-    }
+{
+    display:inline;
+    margin: 0 auto 0 auto;
+}
 
 .menu-header-list a
-	{
-        font-size:21px;
-		font-weight: bold;
-        padding:15% 5% 15% 5%;
-        white-space: nowrap;
-	}
+{
+    font-size:21px;
+    font-weight: bold;
+    padding:15% 5% 15% 5%;
+    white-space: nowrap;
+}
 
 .menu-header-list a:hover
-	{
-        background-color: white;
-        color:#2d6195;
-	}
+{
+    background-color: white;
+    color:#2d6195;
+}
 
 .active-anchor
-    {
-        border-bottom: 1px solid #ffffffd5;
-    }
+{
+    border-bottom: 1px solid #ffffffd5;
+}
 
 /* rules for header while scrolling */
 .hidden-header
-    {
-        color:#2d6195;
-        background-color:rgba(255, 255, 255, 0.877);
-        box-shadow: 0 4px 5px rgba(0,0,0,0.2);
-        opacity:0%;
-    }
+{
+    color:#2d6195;
+    background-color:rgba(255, 255, 255, 0.877);
+    box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+    opacity:0%;
+}
 
 .hidden-header:hover
-    {
-        opacity:100%;
-    }
+{
+    opacity:100%;
+}
 
 .filler-top
-    {
-        background-color: #2d6195;
-        height:13vh;
-        width:100%;
-        position:absolute;
-        top:0;
-        left:0;
-        z-index:-5;
-    }
+{
+    background-color: #2d6195;
+    height:12vh;
+    width:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:-5;
+}
 
 .page-scrolled
-    {
-        color:#2d6195;
-        background-color:rgba(255, 255, 255, 0.877);
-        box-shadow: 0 4px 5px rgba(0,0,0,0.2);
-        transition: all 1s ease-in-out;
-    }
+{
+    color:#2d6195;
+    background-color:rgba(255, 255, 255, 0.877);
+    box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+    transition: all 1s ease-in-out;
+}
 
 .page-scrolled .menu-header-list a:hover
-    {
-        background-color:#2d6195;
-        color:white;
-    }
+{
+    background-color:#2d6195;
+    color:white;
+}
 
 .page-scrolled .active-anchor
-    {
-        border-bottom: 1px solid #2d6195d5;
-    }
+{
+    border-bottom: 1px solid #2d6195d5;
+}
 /* end .page-scrolled rules*/
 
 .container-title
-    {
-        background:linear-gradient(0deg, #50858B 0%, #2d6195 60%);
-        height:90vh;
-        padding-top:15vh;
-    }
+{
+    background:linear-gradient(0deg, #50858B 0%, #2d6195 60%);
+    height:70vh;
+    padding-top:15vh;
+}
 
 /*----SECTIONS ----*/
 main
-    {
-        position:relative;
-    }
+{
+    position:relative;
+}
 
 main > section
+{
+    position:relative;
+    overflow:hidden;
+}
+
+.container-sec
+{
+    position:relative;
+    z-index: 1;
+}
+
+.collapsed > .container-sec p
+{
+    display: none;
+}
+
+.container-sec p
+{
+    position: relative;
+    z-index: 2;
+}
+
+/* general rules for .wave*/
+main > section .wave
+{
+    width:100%;
+    height:2vh;
+    position: relative;
+    z-index:2;
+}
+
+main > section:nth-of-type(2) .wave
+{
+    background-image: url("../img/wave1-2.svg");
+}
+
+main > section:nth-of-type(3) .wave
+{
+    background-image: url("../img/wave2-3.svg");
+}
+
+main > section:nth-of-type(4) .wave
+{
+    background-image: url("../img/wave3-4.svg");
+}
+
+main > section:nth-of-type(1)
+{   
+    background-color: #5497A7;
+}
+
+main > section:nth-of-type(2)
+{
+    background-color: #62A8AC;
+}
+
+main > section:nth-of-type(3)
+{
+    background-color: #78CAD2;
+}
+
+main > section:nth-of-type(4)
+{
+    background-color: #A1D2CE;
+}
+
+main > section:nth-of-type(odd) .container-sec
+{
+    min-height:80vh;
+    text-align:left;
+    max-width:50vw;
+    margin-right:auto;
+    padding:45px;
+    padding-top:70px;
+}
+
+main > section:nth-of-type(even) .container-sec
+{
+    min-height:80vh;
+    text-align: right;
+    max-width:50vw;
+    margin-left:auto;
+    padding:45px;
+    padding-top:70px;
+}
+
+#bot-anchor
+{
+    display:none;
+    position:absolute;
+    z-index:2;
+    left:calc(50% - 79px);
+    bottom:25px;
+    color:#50858B;
+    border:2px solid #50858B;
+    border-radius:12px;
+    padding:10px;
+    font-weight: bold;
+}
+
+#bot-anchor:hover
+{
+    background-color: #50858B;
+    color:white;
+}
+
+footer
+{
+    background-color: #50858B;
+    height:25vh;
+}
+
+/*-----MEDIA MOB L & MOB M-----*/
+@media screen and (min-width:641px) and (max-width:1024px)
+{
+    h1
     {
-        position:relative;
-        z-index:-1;
-        overflow:hidden;
+        font-size: 4em;
     }
 
-/*animation bubble from bot to top keyframes*/
-@keyframes bubbleTop {
+    header
+    {
+        height:8vh;
+    }
+
+    .container-title
+    {
+        height:70vh;
+    }
+
+    main > section:nth-of-type(odd) .container-sec,
+    main > section:nth-of-type(even) .container-sec
+    {
+        min-height: auto;
+        max-width: none;
+        padding-bottom:100px;
+        text-align: left;
+    }
+}
+
+/*-----MEDIA MOB S-----*/
+@media screen and (max-width:640px)
+{
+    h1
+    {
+        font-size: 2.5em;
+    }
+    
+    h2
+    {
+        font-size: 2em;
+    }
+
+    header
+    {
+        height:8vh;
+    }
+
+    .container-title
+    {
+        height:70vh;
+    }
+
+    main > section:nth-of-type(odd) .container-sec,
+    main > section:nth-of-type(even) .container-sec
+    {
+        min-height: none;
+        max-width: none;
+        padding-bottom:100px;
+    }
+}
+
+
+
+/*-----MENU MOBILE-----*/
+@media screen and (max-width:1024px)
+{
+    #menu-mob:focus
+    {
+        outline:none;
+    }
+
+    .menu-header > button
+    {
+        display:block;
+        height:5vh;
+        margin: auto 0 auto 2vw;
+        padding:10px 20px 10px 20px;
+        border:1px solid white;
+        border-radius:25px;
+        background-color: transparent;
+        color:white;
+        font-size: 20px;
+        font-family: inherit;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .menu-header > .menu-mob-active
+    {
+        color:#2d6195;
+        background-color: white;
+    }
+
+    .menu-header > button::after
+    {
+        content:"";
+        margin-left: 15px;
+        margin-bottom:5px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+    }
+
+    .menu-header > .menu-mob-active::after
+    {
+        background-image: url("../img/menu_close.svg");
+        background-size: cover;
+        padding:0;
+        margin:0;
+        margin-left:13px;
+        border:0;
+        width:13px;
+        height:13px;
+        transform:none;
+        -webkit-transform:none;
+    }
+    .menu-header
+    {
+        width:auto;
+        display:flex;
+        flex-direction: row;
+        align-content: center;
+    }
+
+    .menu-header-list
+    {
+        display:none;
+        flex-direction: column;
+        position:absolute;
+        top:100%;
+        background-color: white;
+        width:30vw;
+        height:auto;
+        padding:0;
+    }
+ 
+    .menu-mob-active + .menu-header-list
+    {
+        display:flex;
+    }
+
+    .menu-header-list li
+    {
+        display:block;
+        width:100%;
+    }
+
+    .menu-header-list a,
+    .menu-header-list a:hover,
+    .page-scrolled .menu-header-list a:hover
+    {
+        width:100%;
+        padding:20px 10px 20px 20px;
+        color: #2d6195;
+        display:block;
+        background-color: transparent;
+    }
+
+    .active-anchor,
+    .page-scrolled .active-anchor
+    {
+        border:none;
+    }
+}
+
+
+
+/*-----SECTION ANIMATION-----*/
+    /*animation bubble from bot to top keyframes*/
+@keyframes bubbleTop 
+{
     from {
         margin-bottom: 0%;
     }
     to {
-        margin-bottom: 80%;
+        margin-bottom: 100%;
     }
 }
 
-@-webkit-keyframes bubbleTop {
+@-webkit-keyframes bubbleTop
+{
     from {
         margin-bottom: 0%;
     }
     to {
-        margin-bottom: 80%;
+        margin-bottom: 100%;
     }
 }
 
-/*side bubble animation keyframes*/
-@keyframes bubbleSide{
+    /*side bubble animation keyframes*/
+@keyframes bubbleSide
+{
     from {
         margin-left:0;
     }
@@ -220,175 +506,74 @@ main > section
     }
 }
 
-@-webkit-keyframes bubbleSide{
-    from {
+@-webkit-keyframes bubbleSide
+{
+    from 
+    {
         margin-left:0;
     }
-    to {
+    to 
+    {
         margin-left:50px;
     }
 }
 
-/*  bubble elements generic */
+    /*bubble elements generic*/
 .active-element::after,
 .active-element::before,
 .active-element .container-sec::before,
 .active-element .container-sec::after
-    {
-        content: "";
-        border-radius: 50%;
-        position:absolute;
-        z-index:-1;
-        bottom: -20%;
-        background: radial-gradient(#e9e9e91c,#64c8e06b);
-        box-shadow: 0px 0px 12px -1px #6f6f6f6e;
-    }
+{
+    content: "";
+    border-radius: 50%;
+    position:absolute;
+    bottom: -20%;
+    background: radial-gradient(#e9e9e91c,#64c8e06b);
+    box-shadow: 0px 0px 12px -1px #6f6f6f6e;
+}
 
     /*bubble #1 anchored to section*/
 .active-element::after
-    {  
-        width: 100px;
-        height: 100px;
-        left: 75%;
-        animation: bubbleTop 1s linear infinite, bubbleSide 2s ease-in-out alternate infinite;
-        -webkit-animation: bubbleTop 8s linear infinite, bubbleSide 2s ease-in-out alternate infinite;     
-        animation-delay: 2s;
-    }
+{  
+    width: 100px;
+    height: 100px;
+    left: 75%;
+    animation: bubbleTop 1s linear infinite, bubbleSide 2s ease-in-out alternate infinite;
+    -webkit-animation: bubbleTop 8s linear infinite, bubbleSide 2s ease-in-out alternate infinite;     
+    animation-delay: 2s;
+}
 
     /*bubble #2 anchored to section*/
 .active-element::before
-    {      
-        width: 150px;
-        height: 150px;
-        left: 35%;
-        animation: bubbleTop 1s linear infinite, bubbleSide 2s ease-in-out alternate infinite;
-        -webkit-animation: bubbleTop 9s linear infinite, bubbleSide 2s ease-in-out alternate infinite;     
-        animation-delay:0s;
-    }
+{      
+    width: 150px;
+    height: 150px;
+    left: 35%;
+    animation: bubbleTop 1s linear infinite, bubbleSide 2s ease-in-out alternate infinite;
+    -webkit-animation: bubbleTop 9s linear infinite, bubbleSide 2s ease-in-out alternate infinite;     
+    animation-delay:0s;
+}
     
     /*bubble #3 anchored to div*/
 .active-element .container-sec::before
-    { 
-        width: 80px;
-        height: 80px;
-        left: 12%;
-        animation: bubbleTop 1s linear infinite, bubbleSide 2s ease-in-out alternate infinite;
-        -webkit-animation: bubbleTop 6.8s linear infinite, bubbleSide 2s ease-in-out alternate infinite;     
-        animation-delay:1s;
-    }
+{ 
+    width: 80px;
+    height: 80px;
+    left: 12%;
+    animation: bubbleTop 1s linear infinite, bubbleSide 2s ease-in-out alternate infinite;
+    -webkit-animation: bubbleTop 6.8s linear infinite, bubbleSide 2s ease-in-out alternate infinite;     
+    animation-delay:1s;
+}
 
     /*bubble #4 anchored to div*/
 .active-element .container-sec::after
-    {       
-        width: 60px;
-        height: 60px;
-        left:55%;
-        animation: bubbleTop 1s linear infinite, bubbleSide 2s ease-in-out alternate infinite;
-        -webkit-animation: bubbleTop 6s linear infinite, bubbleSide 2s ease-in-out alternate infinite;     
-        animation-delay:3s;
-    }
+{       
+    width: 60px;
+    height: 60px;
+    left:55%;
+    animation: bubbleTop 1s linear infinite, bubbleSide 2s ease-in-out alternate infinite;
+    -webkit-animation: bubbleTop 6s linear infinite, bubbleSide 2s ease-in-out alternate infinite;     
+    animation-delay:3s;
+}
 
-/* general rules for .wave*/
-main > section .wave
-    {
-        width:100%;
-        height:2vh;
-    }
-
-main > section:nth-of-type(2) .wave
-    {
-        background-image: url("../img/wave1-2.svg");
-    }
-
-main > section:nth-of-type(3) .wave
-    {
-        background-image: url("../img/wave2-3.svg");
-    }
-
-main > section:nth-of-type(4) .wave
-    {
-        background-image: url("../img/wave3-4.svg");
-    }
-
-main > section:nth-of-type(1)
-    {   
-        background-color: #5497A7;
-    }
-
-main > section:nth-of-type(2)
-    {
-        background-color: #62A8AC;
-    }
-
-main > section:nth-of-type(3)
-    {
-        background-color: #78CAD2;
-    }
-
-main > section:nth-of-type(4)
-    {
-        background-color: #A1D2CE;
-    }
-
-main > section:nth-of-type(odd) .container-sec
-    {
-        min-height:80vh;
-        text-align:left;
-        max-width:50vw;
-        margin-right:auto;
-        padding:45px;
-        padding-top:70px;
-    }
-
-main > section:nth-of-type(even) .container-sec
-    {
-        min-height:80vh;
-        text-align: right;
-        max-width:50vw;
-        margin-left:auto;
-        padding:45px;
-        padding-top:70px;
-    }
-
-#bot-anchor
-    {
-        display:none;
-        position:absolute;
-        left:calc(50% - 79px);
-        bottom:25px;
-        color:#50858B;
-        border:2px solid #50858B;
-        border-radius:12px;
-        padding:10px;
-        font-weight: bold;
-    }
-
-#bot-anchor:hover
-    {
-        background-color: #50858B;
-        color:white;
-    }
-
-footer
-    {
-        background-color: #50858B;
-        height:25vh;
-    }
-
-/*-----MEDIA MOB L-----*/
-@media screen and (min-width:901px) and (max-width:1024px)
-    {
-
-    }
-
-/*-----MEDIA MOB M-----*/
-@media screen and (min-width:641px) and (max-width:900px)
-    {
-
-    }
-
-/*-----MEDIA MOB S-----*/
-@media screen and (max-width:640px)
-    {
-
-    }
+/*-----END SECTION ANIMATION-----*/
