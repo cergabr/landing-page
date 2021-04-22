@@ -215,7 +215,6 @@ main > section
     font-weight: bold;
     background: none;
     border:none;
-    text-align: center;
 }
 
 .collapsed .toggle-collapse::before
@@ -229,7 +228,7 @@ main > section
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
     position:relative;
-    left:calc(50% + 2px);
+    left:calc(50% + 4px);
     top:18px;
 }
 
@@ -264,7 +263,6 @@ main > section
 {
     position:relative;
     z-index: 1;
-    height:750px;
 }
 
 .container-sec p
@@ -332,8 +330,6 @@ main > section:nth-of-type(even) .container-sec
     padding:70px 45px 100px 45px;
 }
 
-.active-element 
-
 .bot-anchor-bg
 {
     height:100px;
@@ -385,11 +381,6 @@ footer
         height:80vh;
     }
 
-    .container-sec
-    {
-        height:700px;
-    }
-
     main > section:nth-of-type(odd) .container-sec,
     main > section:nth-of-type(even) .container-sec
     {
@@ -399,13 +390,14 @@ footer
         text-align: left;
     }
 
-    .collapsed .toggle-collapse
+    .toggle-collapse
     {
         color: white;
-        box-shadow: 0 0 4px 4px rgb(41 41 41 / 27%);
-        background-color: #50858bd4;
+        box-shadow: 0 0 5px 5px rgba(41, 41, 41, 0.274);
+        background-color: #50858bce;
+        border:1px solid #2e2e2eaf;
         border-radius: 20px;
-        padding: 5px 8px 5px 8px;
+        padding:2px 10px 2px 3px;
     }
 
     .collapsed .toggle-collapse::before
@@ -416,22 +408,12 @@ footer
 
     .open::after
     {
-        top:-14px;
+        border-color:white;
     }
 
     .toggle-collapse:hover
     {
         text-decoration: none;
-    }
-
-    .active-element .bubbles-3-4::after
-    {
-        display:none;
-    }
-
-    .active-element::before
-    {
-        display:none;
     }
 }
 
@@ -461,50 +443,9 @@ footer
     main > section:nth-of-type(odd) .container-sec,
     main > section:nth-of-type(even) .container-sec
     {
-        min-height: auto;
+        min-height: none;
         max-width: none;
-        padding: 50px 20px 70px 20px;
-        text-align:left;
-    }
-
-    .container-sec p
-    {
-        font-size: 16px;
-    }
-
-    .collapsed .toggle-collapse
-    {
-        color: white;
-        box-shadow: 0 0 4px 4px rgb(41 41 41 / 27%);
-        background-color: #50858bd4;
-        border-radius: 20px;
-        padding: 5px 8px 5px 8px;
-    }
-
-    .collapsed .toggle-collapse::before
-    {
-        border-color:white;
-        top:21px;
-    }
-
-    .open::after
-    {
-        top:-12px;
-    }
-
-    .toggle-collapse:hover
-    {
-        text-decoration: none;
-    }
-
-    .active-element .bubbles-3-4::after
-    {
-        display:none;
-    }
-
-    .active-element::before
-    {
-        display:none;
+        padding-bottom:100px;
     }
 }
 
@@ -527,9 +468,9 @@ footer
     .menu-header > button
     {
         display:block;
-        height:40px;
+        height:5vh;
         margin: auto 0 auto 2vw;
-        padding:8px 16px 8px 16px;
+        padding:10px 20px 10px 20px;
         border:1px solid white;
         border-radius:25px;
         background-color: transparent;
@@ -603,7 +544,7 @@ footer
         position:absolute;
         top:100%;
         background-color: white;
-        width:200px;
+        width:30vw;
         height:auto;
         padding:0;
     }
@@ -647,7 +588,7 @@ footer
         margin-bottom: 0%;
     }
     to {
-        margin-bottom: 1000px;
+        margin-bottom: 100%;
     }
 }
 
@@ -657,7 +598,7 @@ footer
         margin-bottom: 0%;
     }
     to {
-        margin-bottom: 1000px;
+        margin-bottom: 100%;
     }
 }
 
@@ -705,9 +646,9 @@ footer
 {  
     width: 100px;
     height: 100px;
-    left: 75vw;
+    left: 75%;
     animation: bubbleTop 1s linear infinite, bubbleSide 2s ease-in-out alternate infinite;
-    -webkit-animation: bubbleTop 9s linear infinite, bubbleSide 2s ease-in-out alternate infinite;     
+    -webkit-animation: bubbleTop 13s linear infinite, bubbleSide 2s ease-in-out alternate infinite;     
     animation-delay: 0s;
 }
 
@@ -716,10 +657,10 @@ footer
 {      
     width: 150px;
     height: 150px;
-    left: 35vw;
+    left: 35%;
     animation: bubbleTop 1s linear infinite, bubbleSide 2s ease-in-out alternate infinite;
-    -webkit-animation: bubbleTop 10s linear infinite, bubbleSide 2s ease-in-out alternate infinite;     
-    animation-delay:1.5s;
+    -webkit-animation: bubbleTop 14s linear infinite, bubbleSide 2s ease-in-out alternate infinite;     
+    animation-delay:5s;
 }
     
     /*bubble #3*/
@@ -727,10 +668,10 @@ footer
 { 
     width: 80px;
     height: 80px;
-    left: 13vw;
+    left: 13%;
     animation: bubbleTop 1s linear infinite, bubbleSide 2s ease-in-out alternate infinite;
-    -webkit-animation: bubbleTop 8s linear infinite, bubbleSide 2s ease-in-out alternate infinite;     
-    animation-delay:3s;
+    -webkit-animation: bubbleTop 11.8s linear infinite, bubbleSide 2s ease-in-out alternate infinite;     
+    animation-delay:2s;
 }
 
     /*bubble #4*/
@@ -738,10 +679,10 @@ footer
 {       
     width: 60px;
     height: 60px;
-    left:48vw;
+    left:48%;
     animation: bubbleTop 1s linear infinite, bubbleSide 2s ease-in-out alternate infinite;
-    -webkit-animation: bubbleTop 7.2s linear infinite, bubbleSide 2s ease-in-out alternate infinite;     
-    animation-delay:4.5s;
+    -webkit-animation: bubbleTop 11s linear infinite, bubbleSide 2s ease-in-out alternate infinite;     
+    animation-delay:1s;
 }
 
 /*bubble #5*/
@@ -749,10 +690,10 @@ footer
 {       
     width: 50px;
     height: 50px;
-    left:67vw;
+    left:60%;
     animation: bubbleTop 1s linear infinite, bubbleSide 2s ease-in-out alternate infinite;
-    -webkit-animation: bubbleTop 6.7s linear infinite, bubbleSide 2s ease-in-out alternate infinite;     
-    animation-delay:6s;
+    -webkit-animation: bubbleTop 10.5s linear infinite, bubbleSide 2s ease-in-out alternate infinite;     
+    animation-delay:3s;
 }
 
 /*bubble #6*/
@@ -760,10 +701,10 @@ footer
 {       
     width: 30px;
     height: 30px;
-    left:22vw;
+    left:32%;
     animation: bubbleTop 1s linear infinite, bubbleSide 2s ease-in-out alternate infinite;
-    -webkit-animation: bubbleTop 6.2s linear infinite, bubbleSide 2s ease-in-out alternate infinite;     
-    animation-delay:7s;
+    -webkit-animation: bubbleTop 10s linear infinite, bubbleSide 2s ease-in-out alternate infinite;     
+    animation-delay:0s;
 }
 
 /*-----END SECTION ANIMATION-----*/

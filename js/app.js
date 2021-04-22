@@ -33,6 +33,17 @@ function hideAfterScroll(){
     }
 }
 
+function buttonTextOnCollapse(parent_sec){
+    if (parent_sec.classList.contains('collapsed')){
+        parent_sec.querySelector('.toggle-collapse').innerText="Show all";
+        parent_sec.querySelector('.toggle-collapse').classList.remove('open');
+    }
+    else{
+        parent_sec.querySelector('.toggle-collapse').innerText="Collapse";
+        parent_sec.querySelector('.toggle-collapse').classList.add('open');
+    }
+}
+
 /**
  * END HELPER FUNCTIONS
 */
@@ -64,36 +75,40 @@ function createMenuList(){
 
 // Add class active-element to section when at least 50% visible on the viewport
 function sectionActiveClass(){
-        let sections=readSections();
-        for (section of sections){
-            if(section.classList.contains('collapsed')){
-                section.classList.remove('active-element');
+    console.log("check active section");
+    let sections=readSections();
+    
+    for (section of sections){
+        if(section.classList.contains('collapsed')){
+            section.classList.remove('active-element');
+            document.querySelector('.menu-header-list a[href=\'#'+section.id+'\']').classList.remove('active-anchor');
+        }
+        else{ 
+            if (elemIsVisible(section)){
+                section.classList.add('active-element');
+                //add class active to the correspondent anchor
+                document.querySelector('.menu-header-list a[href=\'#'+section.id+'\']').classList.add('active-anchor');
             }
-            else{ 
-                if (elemIsVisible(section)){
-                    section.classList.add('active-element');
-                    //add class active to the correspondent anchor
-                    document.querySelector('.menu-header-list a[href=\'#'+section.id+'\']').classList.add('active-anchor');
-                }
-                else {
-                    section.classList.remove('active-element');
-                    //remove class active from the correspondent anchor
-                    document.querySelector('.menu-header-list a[href=\'#'+section.id+'\']').classList.remove('active-anchor');
-                }
+            else {
+                section.classList.remove('active-element');
+                //remove class active from the correspondent anchor
+                document.querySelector('.menu-header-list a[href=\'#'+section.id+'\']').classList.remove('active-anchor');
             }
         }
     }
+}
 
 // Scroll to anchor
 function scrollToAnchor(e){
     e.preventDefault();
 
-    if(e.target.offsetParent.previousElementSibling.classList.contains('menu-mob-active')){
-        e.target.offsetParent.previousElementSibling.classList.toggle('menu-mob-active');
+    if(e.target.offsetParent.previousElementSibling!==null){
+        e.target.offsetParent.previousElementSibling.classList.remove('menu-mob-active');
     }
     
     const anchorSec=document.querySelector(e.target.hash);
     anchorSec.classList.remove('collapsed');
+    buttonTextOnCollapse(anchorSec);
     sectionActiveClass();
     const posY=anchorSec.getBoundingClientRect().top + document.documentElement.scrollTop - headerElem.offsetHeight;
 
@@ -158,7 +173,8 @@ document.querySelector('#menu-mob').addEventListener('click', e=>{
 
 document.querySelector('main').addEventListener('click', e=>{
     if (e.target.classList.contains('toggle-collapse')){
-        e.target.offsetParent.offsetParent.classList.toggle('collapsed');
+        e.target.offsetParent.classList.toggle('collapsed');
+        buttonTextOnCollapse(e.target.offsetParent);
         sectionActiveClass();
     };
 });
