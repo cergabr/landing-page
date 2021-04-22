@@ -65,6 +65,7 @@ h2
     margin-bottom:3vh;
     position: relative;
     z-index: 3;
+    overflow:hidden;
 }
 
 p 
@@ -332,12 +333,10 @@ main > section:nth-of-type(even) .container-sec
     padding:70px 45px 100px 45px;
 }
 
-.active-element 
-
 .bot-anchor-bg
 {
     height:100px;
-    width: 100%;
+    width:100%;
     background-color: #abd3d0;
     position:relative;
     padding-top:40px;
@@ -424,12 +423,12 @@ footer
         text-decoration: none;
     }
 
-    .active-element .bubbles-3-4::after
+    .active-section .bubbles-3-4::after
     {
         display:none;
     }
 
-    .active-element::before
+    .active-section::before
     {
         display:none;
     }
@@ -497,12 +496,12 @@ footer
         text-decoration: none;
     }
 
-    .active-element .bubbles-3-4::after
+    .active-section .bubbles-3-4::after
     {
         display:none;
     }
 
-    .active-element::before
+    .active-section::before
     {
         display:none;
     }
@@ -639,7 +638,89 @@ footer
 
 
 
-/*-----SECTION ANIMATION-----*/
+/*-----SECTION ANIMATIONS-----*/
+
+    /* active section title animation*/
+@keyframes bubblePop
+{
+    from {
+        opacity:1;
+        transform: scale(1);
+        margin-bottom:0;
+    }
+    50%{
+        transform: scale(1.05);
+    }
+    55%{
+        opacity:1;
+        transform: scale(1.15);
+        margin-bottom:15px;
+    }
+    56%{
+        opacity:0;
+        transform: scale(1.3);
+    }
+    99%{
+        opacity:0;
+        transform: scale(1.3);
+        margin-bottom:15px;
+    }
+    to{
+        opacity:0;
+        transform: scale(1);
+        margin-bottom:0;
+    }          
+}
+
+@-webkit-keyframes bubblePop
+{
+    from {
+        opacity:1;
+        transform: scale(1);
+        margin-bottom:0;
+    }
+    50%{
+        transform: scale(1.05);
+    }
+    55%{
+        opacity:1;
+        transform: scale(1.15);
+        margin-bottom:15px;
+    }
+    56%{
+        opacity:0;
+        transform: scale(1.3);
+    }
+    99%{
+        opacity:0;
+        transform: scale(1.3);
+        margin-bottom:15px;
+    }
+    to{
+        opacity:0;
+        transform: scale(1);
+        margin-bottom:0;
+    }                
+}
+
+.active-section h2::after
+{
+    content: "";
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+    position:absolute;
+    bottom:-10%;
+    left:43%;
+    z-index:1;
+    background: radial-gradient(#e9e9e91c,#64c8e06b);
+    box-shadow: 0px 0px 12px -1px #6f6f6f6e;
+    animation: bubblePop 3s cubic-bezier(.24,.85,.47,.99) infinite;
+    -webkit-animation: bubblePop 3s cubic-bezier(.24,.85,.47,.99) infinite;
+}
+
+
+
     /*animation bubble from bot to top keyframes*/
 @keyframes bubbleTop 
 {
@@ -685,12 +766,12 @@ footer
 }
 
     /*bubble elements generic*/
-.active-element::after,
-.active-element::before,
-.active-element .bubbles-3-4::before,
-.active-element .bubbles-3-4::after,
-.active-element .bubbles-5-6::before,
-.active-element .bubbles-5-6::after
+.active-section::after,
+.active-section::before,
+.active-section .bubbles-3-4::before,
+.active-section .bubbles-3-4::after,
+.active-section .bubbles-5-6::before,
+.active-section .bubbles-5-6::after
 {
     content: "";
     border-radius: 50%;
@@ -701,7 +782,7 @@ footer
 }
 
     /*bubble #1*/
-.active-element::after
+.active-section::after
 {  
     width: 100px;
     height: 100px;
@@ -712,7 +793,7 @@ footer
 }
 
     /*bubble #2*/
-.active-element::before
+.active-section::before
 {      
     width: 150px;
     height: 150px;
@@ -723,7 +804,7 @@ footer
 }
     
     /*bubble #3*/
-.active-element .bubbles-3-4::before
+.active-section .bubbles-3-4::before
 { 
     width: 80px;
     height: 80px;
@@ -734,7 +815,7 @@ footer
 }
 
     /*bubble #4*/
-.active-element .bubbles-3-4::after
+.active-section .bubbles-3-4::after
 {       
     width: 60px;
     height: 60px;
@@ -745,7 +826,7 @@ footer
 }
 
 /*bubble #5*/
-.active-element .bubbles-5-6::before
+.active-section .bubbles-5-6::before
 {       
     width: 50px;
     height: 50px;
@@ -756,7 +837,7 @@ footer
 }
 
 /*bubble #6*/
-.active-element .bubbles-5-6::after
+.active-section .bubbles-5-6::after
 {       
     width: 30px;
     height: 30px;

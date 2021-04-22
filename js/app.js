@@ -73,24 +73,24 @@ function createMenuList(){
     document.querySelector('.menu-header-list').appendChild(fragment);
 }
 
-// Add class active-element to section when at least 50% visible on the viewport
+// Add class active-section to section when at least 50% visible on the viewport
 function sectionActiveClass(){
     console.log("check active section");
     let sections=readSections();
     
     for (section of sections){
         if(section.classList.contains('collapsed')){
-            section.classList.remove('active-element');
+            section.classList.remove('active-section');
             document.querySelector('.menu-header-list a[href=\'#'+section.id+'\']').classList.remove('active-anchor');
         }
         else{ 
             if (elemIsVisible(section)){
-                section.classList.add('active-element');
+                section.classList.add('active-section');
                 //add class active to the correspondent anchor
                 document.querySelector('.menu-header-list a[href=\'#'+section.id+'\']').classList.add('active-anchor');
             }
             else {
-                section.classList.remove('active-element');
+                section.classList.remove('active-section');
                 //remove class active from the correspondent anchor
                 document.querySelector('.menu-header-list a[href=\'#'+section.id+'\']').classList.remove('active-anchor');
             }
