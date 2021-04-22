@@ -1,3 +1,4 @@
+const initJS=performance.now();
 
 const headerElem=document.querySelector('header');
 let timer;
@@ -179,3 +180,6 @@ document.querySelector('main').addEventListener('click', e=>{
     };
 });
 
+const finalJS=performance.now();
+
+console.log("app.js: "+(finalJS - initJS)+"ms");
